@@ -1,0 +1,48 @@
+{
+    "BETA": 0.9, 
+    "BEST_MODEL_EXECUTION_RESULTS": "best_model_results", 
+    "CALCULATE_FEATURES": false, 
+    "CALCULATE_THE_WHOLE_MAP": true, 
+    "COMPARE_MODELS_RESULTS": false, 
+    "_CMIP_DIR": "data/cmip_projections", 
+    "_CMIP_FEATURES": ["evap", "pre", "rel_hum", "soil_water"], 
+    "_CMIP_FEATURES_CODES": {
+        "evap": "evspsbl", 
+        "pre": "pr", 
+        "soil_water": "mrsos", 
+        "rel_hum": "hur"
+    }, 
+    "_CMIP_SCENARIOS": ["cmip26", "cmip34", "cmip45", "cmip70", "cmip85"], 
+    "DATA_VOLUME": 10000, 
+    "EDA": false, 
+    "GEOGRAPHICAL_FEATURES": ["srtm", "aspect", "slope", "curvature", "point_x", "point_y"], 
+    "MAX_VIF": 6, 
+    "MODEL_NAME": "abies_area_model_2026_06_18_09_43_fbeta", 
+    "MODEL_PATH": "/models/abies_area_model_2026_06_18_09_43_fbeta", 
+    "MODELS_COMPARISON": "models_comparison", 
+    "MONTH_NUMBERS": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"], 
+    "_N_CHUNKS": 100, 
+    "N_TRIALS": 25, 
+    "NAME_ABIES_FILE": "predictors_abies.txt", 
+    "NAME_OTHERSP_FILE": "predictors_not_abies.txt", 
+    "ROOT_DIR": "C:/Users/user/Yandex.Disk/Важные документы/Исходные данные для статей/Моделирование вспышек/Моделирование ареала пихты/Abies_01",
+    "SEED": 1980, 
+    "TARGET_METRIC": "fbeta", 
+    "TRAIN_MODEL": false, 
+    "WEATHER_FEATURES": ["soil_water", "pre", "snow_depth", "evap", "rel_hum", "2m_temp"], 
+    "YDATA_REPORT_PARAMS": {
+        "correlations": {
+            "auto": {"calculate": false},
+            "pearson": {"calculate": false}, 
+            "spearman": {"calculate": true}, 
+            "phi_k": {"calculate": false}
+        }, 
+        "interactions": {
+            "continuous": false, 
+            "targets": []
+            }, 
+        "missing_diagrams": {
+            "heatmap": false
+        }
+    }
+}
