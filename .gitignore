@@ -1,0 +1,11 @@
+.venv/
+.vscode/
+
+/data/predictors_abies.txt
+/data/predictors_not_abies.txt
+/data/cmip_projections/
+
+/map_current/data.csv
+
+/scripts/old/
+/scripts/__pycache__/

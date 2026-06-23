@@ -1,0 +1,6 @@
+,algorythm,accuracy,precision,recall
+roc_auc,RF,0.9438,0.932271,0.954712
+fbeta_06,LightGBM,0.9442,0.93336,0.954304
+fbeta_07,RF,0.9438,0.932616,0.954304
+fbeta_08,LightGBM,0.9438,0.931583,0.955528
+fbeta_09,XGBoost,0.942,0.931337,0.951856
