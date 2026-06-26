@@ -6,7 +6,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # загрузить конфиг
-with open('C:/Users/user/Yandex.Disk/Важные документы/Исходные данные для статей/Моделирование вспышек/Моделирование ареала пихты/Abies_01/config.json', 'r', encoding='utf-8') as f:
+script_dir = os.path.dirname(os.path.abspath(__file__))
+root_dir = os.path.dirname(script_dir)
+config_path = os.path.join(root_dir, 'config.json')
+with open(config_path, 'r', encoding='utf-8') as f:
     config = json.load(f)
 
 # загрузить адрес корневой папки
@@ -21,8 +24,8 @@ def prepare_datasets(
         data_abies, 
         # фрейм с данными по древостоям других пород
         data_not_abies, 
-        # метка даты и времени (нужна для создания пути к лог-файлу)
-        dt, 
+        # путь к лог-файлу
+        path_to_folder, 
         # имя лог-файла
         fname
         ): 
@@ -31,8 +34,8 @@ def prepare_datasets(
 
     # подготовим список с метками классов
     vegetation = [
-        *np.ones(int(predictors.shape[0] / 2)).tolist(), 
-        *np.zeros(int(predictors.shape[0] / 2)).tolist()
+        *np.ones(int(data_abies.shape[0])).tolist(), 
+        *np.zeros(int(data_not_abies.shape[0])).tolist()
         ]
     
     # Скопируем данные о предикторах во фрейм 'for_map', 
@@ -78,7 +81,7 @@ def prepare_datasets(
     
     # запишем некоторые данные в лог-файл
     try: 
-        os.chdir(ROOT_DIR + '/models/abies_area_model_' + dt + '_' + TARGET_METRIC)
+        os.chdir(path_to_folder)
         with open(fname, 'a') as file: 
             file.write(f'Объём обучающей выборки составил {pred_train.shape[0]} объектов. \n')
             file.write(f'Объём валидационной выборки составил {pred_valid.shape[0]} объектов. \n')

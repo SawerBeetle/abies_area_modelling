@@ -23,8 +23,8 @@ def load_raw_data(
         file_name, 
         # затравка для генератора случайных чисел
         seed=SEED, 
-        # количество строк, которое нужно загрузить
-        size=DATA_VOLUME
+        # доля строк, которое нужно загрузить
+        data_volume=DATA_VOLUME
         ):
     # создадим путь к файлу с загружаемыми данными
     filepath = os.path.join(ROOT_DIR, "data", file_name)
@@ -46,7 +46,7 @@ def load_raw_data(
             # генерируем и сортируем случайные индексы строк
             rng = np.random.default_rng(seed=seed)
             # индексы от 1 до n_lines-1 (0-я строка — это заголовок)
-            lines_to_extract = rng.choice(n_lines - 1, size=size, replace=False) + 1
+            lines_to_extract = rng.choice(n_lines - 1, size=round(n_lines * data_volume), replace=False) + 1
             lines_sorted = sorted(lines_to_extract)
 
             # извлекаем строку заголовка (индекс 0)
@@ -82,6 +82,7 @@ def load_raw_data(
     full_text = "\n".join(lines_list)
     # здесь 'read_csv' узнаёт конец строки по скрытому символу '\n', остальное ясно
     raw_data = pd.read_csv(io.StringIO(full_text), sep=";", decimal=',', header=None)
+    # зададим имена столбцов итогового фрейма
     raw_data.columns = header_cols
 
     return raw_data

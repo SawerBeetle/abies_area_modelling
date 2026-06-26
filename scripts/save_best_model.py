@@ -20,8 +20,10 @@ TARGET_METRIC = config['TARGET_METRIC']
 def save_best_model(
         # лучшая модель
         model_best, 
-        # метка даты и времени для создания пути к рабочей папке и имени модели
+        # метка даты и времени для создания имени модели
         dt, 
+        # путь к рабочей папке
+        path_to_folder, 
         # имя лог-файла
         fname, 
         # алгоритм работы лучшей модели
@@ -36,7 +38,7 @@ def save_best_model(
         used_predictors
         ): 
     # зададим путь к рабочей папке
-    os.chdir(ROOT_DIR + '/models/abies_area_model_' + dt + '_' + TARGET_METRIC)
+    os.chdir(path_to_folder)
     # создадим название лучшей модели, включающее дату и время создания
     model_name = 'abies_area_model_' + dt + '_' + TARGET_METRIC
     # сохраним лучшую модель

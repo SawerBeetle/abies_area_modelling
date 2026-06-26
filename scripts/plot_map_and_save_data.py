@@ -17,7 +17,7 @@ ROOT_DIR = config['ROOT_DIR']
 # будет ли обучаться модель
 TRAIN_MODEL = config['TRAIN_MODEL']
 
-def plot_map_and_save_data(for_map, predictors, used_predictors, model, pred_test, dt2):
+def plot_map_and_save_data(for_map, predictors, used_predictors, model, pred_test, path_to_folder):
     # Создадим фрейм для картирования из признаков, используемых моделью, координат точек 
     # и данных об отсутствии/присутствии пихты ('vegetation'). 
     for_map = for_map[[*used_predictors['feature'], 'point_x', 'point_y', 'vegetation']].copy()
@@ -83,12 +83,12 @@ def plot_map_and_save_data(for_map, predictors, used_predictors, model, pred_tes
 
     if TRAIN_MODEL:
         # зададим папку для сохранения
-        os.chdir(ROOT_DIR + '/models/abies_area_model_' + dt2 + '_' + TARGET_METRIC)
+        os.chdir(path_to_folder)
         # сохраним карту
         plt.savefig('map.jpeg')
 
         # сохраним 'for_map' как .csv
-        os.chdir(ROOT_DIR + '/models/abies_area_model_' + dt2 + '_' + TARGET_METRIC)
+        os.chdir(path_to_folder)
         for_map.to_csv(
             path_or_buf='data_for_map.csv', 
             index=False
