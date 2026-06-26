@@ -1,0 +1,74 @@
+Обучение модели начато 25.06.2026 18:28. 
+Объём обучающей выборки составил 15360 объектов. 
+Объём валидационной выборки составил 7680 объектов. 
+Объём тестовой выборки составил 7680 объектов. 
+
+Максимальное значение VIF: 5. 
+Переменные, оставшиеся после удаления мультиколлинеарных данных: 
+    snow_depth_10, evap_04, rel_hum_04, evap_11, pre_07, rel_hum_12, pre_01, rel_hum_09, slope, evap_07, soil_water_03, aspect, curvature. 
+
+Фиктивная модель создана по стратегии stratified. 
+Значение целевой метрики для фиктивной модели 0.501. 
+
+Целевая метрика: roc_auc. 
+Лучшая модель обучена за 25 проходов. 
+Алгоритм лучшей модели: XGBoost. 
+    roc_auc лучшей модели (валидация): 0.9287277686351589. 
+    roc_auc лучшей модели (тест): 0.9271220592167861. 
+
+           ROC-AUC  accuracy precision    recall
+Dummy     0.500957  0.866276  0.072954  0.074954
+RF        0.844347  0.888021  0.367485  0.793419
+ET        0.791334  0.839714  0.270161  0.734918
+XGBoost   0.925422  0.936719  0.532551  0.912249
+LightGBM  0.892482  0.911589  0.439114  0.870201
+
+    параметры лучшей модели: 
+objective	binary:logistic
+base_score	
+booster	
+callbacks	
+colsample_bylevel	
+colsample_bynode	
+colsample_bytree	
+device	
+early_stopping_rounds	
+enable_categorical	False
+eval_metric	
+feature_types	
+feature_weights	
+gamma	
+grow_policy	
+importance_type	
+interaction_constraints	
+learning_rate	0.07317923138257273
+max_bin	
+max_cat_threshold	
+max_cat_to_onehot	
+max_delta_step	
+max_depth	5
+max_leaves	
+min_child_weight	
+missing	
+monotone_constraints	
+multi_strategy	
+n_estimators	302
+n_jobs	
+num_parallel_tree	
+random_state	1980
+reg_alpha	
+reg_lambda	
+sampling_method	
+scale_pos_weight	8.2584493934095
+subsample	0.3382579372405261
+tree_method	
+validate_parameters	
+verbosity	
+lambda	0.03184116921984477
+
+Важность использованных предикторов: 
+pre_01	0.3122574
+evap_04	0.20486008
+snow_depth_10	0.17928018
+rel_hum_09	0.16220406
+soil_water_03	0.14139834

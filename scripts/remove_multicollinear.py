@@ -25,8 +25,8 @@ def remove_multicollinear(
         train, 
         valid, 
         test, 
-        # метка даты и времени для создания пути к лог-файлу
-        dt, 
+        # путь к папке с лог-файлом (и моделью)
+        path_to_folder, 
         # имя лог-файла
         fname, 
         # максимально допустимое значение VIF; признаки, у которых оно выше, удаляются
@@ -116,7 +116,7 @@ def remove_multicollinear(
     # запишем данные в лог-файл
     try:
         # зададим рабочую папку
-        os.chdir(ROOT_DIR + '/models/abies_area_model_' + dt + '_' + TARGET_METRIC)
+        os.chdir(path_to_folder)
         with open(fname, 'a') as file: 
             file.write('\n')
             # запишем максимально допустимое значение VIF

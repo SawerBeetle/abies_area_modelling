@@ -1,0 +1,75 @@
+Обучение модели начато 25.06.2026 13:59. 
+Объём обучающей выборки составил 15360 объектов. 
+Объём валидационной выборки составил 7680 объектов. 
+Объём тестовой выборки составил 7680 объектов. 
+
+Максимальное значение VIF: 5. 
+Переменные, оставшиеся после удаления мультиколлинеарных данных: 
+    snow_depth_10, evap_04, rel_hum_04, evap_11, pre_07, rel_hum_12, pre_01, rel_hum_09, slope, evap_07, soil_water_03, aspect, curvature. 
+
+Фиктивная модель создана по стратегии stratified. 
+Значение целевой метрики для фиктивной модели 0.073. 
+
+Целевая метрика: fbeta. 
+    Значение beta: 0.6. 
+Лучшая модель обучена за 25 проходов. 
+Алгоритм лучшей модели: XGBoost. 
+    fbeta лучшей модели (валидация): 0.7425111125426785. 
+    fbeta лучшей модели (тест): 0.7543512910423972. 
+
+             Fbeta  accuracy precision    recall
+Dummy     0.073473  0.866276  0.072954  0.074954
+RF        0.518009  0.922656  0.471584   0.71298
+ET        0.335448   0.85625  0.284276  0.670932
+XGBoost   0.744753  0.961979  0.808717  0.610603
+LightGBM  0.662541  0.951953  0.664815  0.656307
+
+    параметры лучшей модели: 
+objective	binary:logistic
+base_score	
+booster	
+callbacks	
+colsample_bylevel	
+colsample_bynode	
+colsample_bytree	
+device	
+early_stopping_rounds	
+enable_categorical	False
+eval_metric	
+feature_types	
+feature_weights	
+gamma	
+grow_policy	
+importance_type	
+interaction_constraints	
+learning_rate	0.0331761661278554
+max_bin	
+max_cat_threshold	
+max_cat_to_onehot	
+max_delta_step	
+max_depth	10
+max_leaves	
+min_child_weight	
+missing	
+monotone_constraints	
+multi_strategy	
+n_estimators	325
+n_jobs	
+num_parallel_tree	
+random_state	1980
+reg_alpha	
+reg_lambda	
+sampling_method	
+scale_pos_weight	0.5209106319294126
+subsample	0.28837592342717255
+tree_method	
+validate_parameters	
+verbosity	
+lambda	0.09508775560245306
+
+Важность использованных предикторов: 
+pre_01	0.26976088
+rel_hum_09	0.19115397
+snow_depth_10	0.186563
+evap_04	0.18590516
+soil_water_03	0.16661693

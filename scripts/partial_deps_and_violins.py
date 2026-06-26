@@ -3,6 +3,7 @@ import os
 import json
 import matplotlib.ticker as ticker
 import matplotlib.pyplot as plt
+import math
 from scipy.stats import ks_2samp
 import seaborn as sns
 from sklearn.inspection import PartialDependenceDisplay
@@ -31,15 +32,27 @@ def partial_deps_and_violins(
         pred_test, 
         # тестовый набор зависимых переменных (данные о породном составе лесов)
         veg_test, 
-        # метка даты и времени для создания пути к каталогу
-        dt2
+        # путь к каталогу
+        path_to_folder
         ): 
+    
+    # рассчитаем нужное количество столбцов
+    if pred_test[model.feature_names_in_].shape[1] < 7: 
+        n_cols = 3
+        width = 10.5
+    else: 
+        n_cols = 4
+        width = 14
+    # рассчитаем нужное количество строк и высоту графика
+    n_rows = math.ceil(pred_test.shape[1] / n_cols)
+    height = 3 * n_rows
+
     # создаём график частных зависимостей
     part_dep = PartialDependenceDisplay.from_estimator(
         estimator=model, 
         X=pred_test, 
         features=list(pred_test.columns), 
-        n_cols=4, 
+        n_cols=n_cols, 
         n_jobs=-1
         )
 
@@ -48,8 +61,12 @@ def partial_deps_and_violins(
     # Для каждого графика...
     for ax in part_dep.axes_.flat: 
         if ax is not None: 
+            # 1. Получаем текущую минимальную и максимальную точки шкалы Y
+            ymin, ymax = ax.get_ylim()
+            # 2. Вычисляем точный центр оси ординат
+            y_center = ymin + (ymax - ymin) / 2            
             # ...рисуем горизонтальную линию на уровне 0.5, ...
-            ax.axhline(y=0.5, color='r', linestyle='--', linewidth=.5)
+            ax.axhline(y=y_center, color='r', linestyle='--', linewidth=.5)
             # ...форматируем подписи при засечках, ...
             ax.xaxis.set_major_formatter(formatter)
             # ...устанавливаем количество засечек не более 4, ...
@@ -60,16 +77,14 @@ def partial_deps_and_violins(
             ax.tick_params(axis='both', labelsize=7)
 
     # выводим график на экран и сохраняем
-    part_dep.figure_.set_size_inches(14, 12)
+    part_dep.figure_.set_size_inches(width, height)
     part_dep.figure_.subplots_adjust(hspace=0.35)
 
-    # если обучаем модель
-    if TRAIN_MODEL:
-        # сохраняем график частных зависимостей в папку с модельью
-        plt.savefig(
-            os.path.join(ROOT_DIR + '/models/abies_area_model_' + dt2 + '_' + TARGET_METRIC + '/partial_dependencies.jpeg'), 
-            bbox_inches='tight'
-            )
+    # сохраняем график частных зависимостей в папку с модельью
+    plt.savefig(
+        os.path.join(path_to_folder + '/partial_dependencies.jpeg'), 
+        bbox_inches='tight'
+        )
     # выводим график частных зависимостей на экран
     plt.show()
 
@@ -84,7 +99,7 @@ def partial_deps_and_violins(
     features = list(data_for_plot.columns[0:(data_for_plot.shape[1] - 1)])
 
     # создадим общий график (fig) и вложенные графики (ax)
-    fig, ax = plt.subplots(4, 4, figsize=(16, 10))
+    fig, ax = plt.subplots(n_rows, n_cols, figsize=(width, height))
     # для удобства дальнейшей обработки сделаем массив вложенных графиков одномерным
     ax_flat = ax.flatten()
 
@@ -146,10 +161,8 @@ def partial_deps_and_violins(
         annot.apply_and_annotate()
     
     # предотвратим наложение субграфиков
-    # если обучаем модель
     plt.tight_layout()
-    if TRAIN_MODEL:
-        # сохраним скрипичные графики в папку с результатами разведочного анализа
-        plt.savefig(os.path.join(ROOT_DIR + '/eda/violins.jpeg'))
+    # сохраним скрипичные графики в папку с моделью
+    plt.savefig(os.path.join(path_to_folder + '/violins.jpeg'))
     # выведем скрипичные графики на экран
     plt.show()
