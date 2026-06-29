@@ -19,12 +19,55 @@
           <mxGeometry height="60" width="190" x="319" y="60" as="geometry" />
         </mxCell>
         <mxCell id="W97imSr3Oh1hHIhS6Gzf-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Weather features average annual values calculation." vertex="1">
-          <mxGeometry height="50" width="170" x="329" y="140" as="geometry" />
+          <mxGeometry height="50" width="170" x="521" y="241" as="geometry" />
         </mxCell>
-        <mxCell id="W97imSr3Oh1hHIhS6Gzf-10" edge="1" parent="1" source="W97imSr3Oh1hHIhS6Gzf-7" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="W97imSr3Oh1hHIhS6Gzf-9" value="">
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-13" parent="1" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;dashed=1;dashPattern=12 12;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Calculate the average annual weather features?" vertex="1">
+          <mxGeometry height="90" width="130" x="349" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-15" edge="1" parent="1" source="W97imSr3Oh1hHIhS6Gzf-7" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="W97imSr3Oh1hHIhS6Gzf-13" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="390" y="280" as="sourcePoint" />
-            <mxPoint x="440" y="230" as="targetPoint" />
+            <mxPoint x="390" y="260" as="sourcePoint" />
+            <mxPoint x="440" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-16" edge="1" parent="1" source="W97imSr3Oh1hHIhS6Gzf-13" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="W97imSr3Oh1hHIhS6Gzf-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="606" y="185" />
+            </Array>
+            <mxPoint x="390" y="260" as="sourcePoint" />
+            <mxPoint x="550" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-17" connectable="0" parent="W97imSr3Oh1hHIhS6Gzf-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="yes" vertex="1">
+          <mxGeometry relative="1" x="-0.2519" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Load the calculated dataset." vertex="1">
+          <mxGeometry height="50" width="170" x="140" y="241" as="geometry" />
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-19" edge="1" parent="1" source="W97imSr3Oh1hHIhS6Gzf-13" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.465;entryY=-0.04;entryDx=0;entryDy=0;entryPerimeter=0;" target="W97imSr3Oh1hHIhS6Gzf-18" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="219" y="185" />
+            </Array>
+            <mxPoint x="390" y="260" as="sourcePoint" />
+            <mxPoint x="440" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-20" connectable="0" parent="W97imSr3Oh1hHIhS6Gzf-19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="no" vertex="1">
+          <mxGeometry relative="1" x="-0.2632" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-21" parent="1" style="shape=parallelogram;html=1;strokeWidth=1;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;dashPattern=12 12;" value="Average annual weather features &amp;amp; geographical features." vertex="1">
+          <mxGeometry height="60" width="150" x="339" y="236" as="geometry" />
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-23" edge="1" parent="1" source="W97imSr3Oh1hHIhS6Gzf-21" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="W97imSr3Oh1hHIhS6Gzf-18" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="250" as="sourcePoint" />
+            <mxPoint x="440" y="200" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
