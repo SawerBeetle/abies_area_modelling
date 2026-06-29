@@ -1,0 +1,33 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Страница-1" id="4wf5V8EtYGGb3xE4ilXR">
+    <mxGraphModel dx="1366" dy="830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="start" vertex="1">
+          <mxGeometry height="30" width="120" x="354" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-5" edge="1" parent="1" source="W97imSr3Oh1hHIhS6Gzf-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="W97imSr3Oh1hHIhS6Gzf-7" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="489" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-4" parent="1" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;shadow=0;strokeColor=#6c8ebf;dashed=1;dashPattern=8 8;fillColor=#dae8fc;" value="- ERA5-Land;&amp;nbsp;&lt;div&gt;- EarthExplorer;&amp;nbsp;&lt;/div&gt;&lt;div&gt;- Vega-Pro.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="100" x="520" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-7" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="- &lt;i&gt;Abies &lt;/i&gt;dataset;&lt;div&gt;- other species dataset.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="190" x="319" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Weather features average annual values calculation." vertex="1">
+          <mxGeometry height="50" width="170" x="329" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="W97imSr3Oh1hHIhS6Gzf-10" edge="1" parent="1" source="W97imSr3Oh1hHIhS6Gzf-7" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="W97imSr3Oh1hHIhS6Gzf-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="280" as="sourcePoint" />
+            <mxPoint x="440" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
