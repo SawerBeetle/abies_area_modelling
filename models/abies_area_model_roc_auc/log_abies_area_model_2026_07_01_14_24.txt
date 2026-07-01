@@ -1,0 +1,77 @@
+Обучение модели начато 01.07.2026 14:24. 
+Объём обучающей выборки составил 15360 объектов. 
+Объём валидационной выборки составил 7680 объектов. 
+Объём тестовой выборки составил 7680 объектов. 
+
+Максимальное значение VIF: 8. 
+Переменные, оставшиеся после удаления мультиколлинеарных данных: 
+    pre_05, srtm, pre_07, snow_depth_10, evap_03, evap_11, evap_04, rel_hum_04, pre_01, rel_hum_12, rel_hum_09, slope, evap_07, soil_water_03, aspect, curvature. 
+
+Фиктивная модель создана по стратегии stratified. 
+Значение целевой метрики для фиктивной модели 0.501. 
+
+Целевая метрика: roc_auc. 
+Лучшая модель обучена за 25 проходов. 
+Алгоритм лучшей модели: XGBoost. 
+    roc_auc лучшей модели (валидация): 0.9391359161566177. 
+    roc_auc лучшей модели (тест): 0.9319398752479804. 
+
+           ROC-AUC  accuracy precision    recall
+Dummy     0.500957  0.866276  0.072954  0.074954
+RF        0.901561  0.908073  0.430079  0.893967
+ET        0.877319  0.856771  0.320338   0.90128
+XGBoost   0.938575  0.936068  0.528747  0.941499
+LightGBM  0.918202  0.923307  0.479808  0.912249
+
+    параметры лучшей модели: 
+objective	binary:logistic
+base_score	
+booster	
+callbacks	
+colsample_bylevel	
+colsample_bynode	
+colsample_bytree	
+device	
+early_stopping_rounds	
+enable_categorical	False
+eval_metric	
+feature_types	
+feature_weights	
+gamma	
+grow_policy	
+importance_type	
+interaction_constraints	
+learning_rate	0.3548106031159239
+max_bin	
+max_cat_threshold	
+max_cat_to_onehot	
+max_delta_step	
+max_depth	7
+max_leaves	
+min_child_weight	
+missing	
+monotone_constraints	
+multi_strategy	
+n_estimators	123
+n_jobs	
+num_parallel_tree	
+random_state	1980
+reg_alpha	
+reg_lambda	
+sampling_method	
+scale_pos_weight	26.516396744658955
+subsample	0.4984543124950404
+tree_method	
+validate_parameters	
+verbosity	
+lambda	82.70560366887395
+
+Важность использованных предикторов: 
+pre_01	0.24477577
+pre_05	0.21249624
+evap_04	0.18615463
+rel_hum_09	0.09498418
+soil_water_03	0.078797095
+snow_depth_10	0.069579266
+evap_03	0.06884702
+srtm	0.044365853

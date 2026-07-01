@@ -1,0 +1,56 @@
+Обучение модели начато 01.07.2026 14:30. 
+Объём обучающей выборки составил 15360 объектов. 
+Объём валидационной выборки составил 7680 объектов. 
+Объём тестовой выборки составил 7680 объектов. 
+
+Максимальное значение VIF: 8. 
+Переменные, оставшиеся после удаления мультиколлинеарных данных: 
+    pre_05, srtm, pre_07, snow_depth_10, evap_03, evap_11, evap_04, rel_hum_04, pre_01, rel_hum_12, rel_hum_09, slope, evap_07, soil_water_03, aspect, curvature. 
+
+Фиктивная модель создана по стратегии stratified. 
+Значение целевой метрики для фиктивной модели 0.073. 
+
+Целевая метрика: fbeta. 
+    Значение beta: 0.6. 
+Лучшая модель обучена за 25 проходов. 
+Алгоритм лучшей модели: LightGBM. 
+    fbeta лучшей модели (валидация): 0.7315105333930974. 
+    fbeta лучшей модели (тест): 0.7459428894543398. 
+
+             Fbeta  accuracy precision    recall
+Dummy     0.073473  0.866276  0.072954  0.074954
+RF        0.605015  0.941797  0.573314  0.714808
+ET        0.399972  0.863802  0.332887  0.908592
+XGBoost   0.713538  0.959766  0.687107  0.798903
+LightGBM  0.731511  0.961458  0.742747  0.702011
+
+    параметры лучшей модели: 
+boosting_type	gbdt
+class_weight	
+colsample_bytree	1.0
+importance_type	split
+learning_rate	0.40034128311271755
+max_depth	8
+min_child_samples	20
+min_child_weight	0.001
+min_split_gain	0.0
+n_estimators	272
+n_jobs	
+num_leaves	31
+objective	
+random_state	1980
+reg_alpha	0.0
+reg_lambda	0.0
+subsample	0.49309863953407135
+subsample_for_bin	200000
+subsample_freq	0
+scale_pos_weight	2.0520367547177965
+lambda_l1	0.14046760176863535
+
+Важность использованных предикторов: 
+srtm	1522
+slope	1473
+aspect	1440
+pre_05	1271
+evap_07	1228
+pre_01	1205

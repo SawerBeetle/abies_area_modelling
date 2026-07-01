@@ -36,6 +36,10 @@ def optimize_model(
         model_best=None, 
         best_algorythm=None
         ): 
+    '''
+    Оптимизация набора предикторов через удаление тех из них, 
+    которые имеют слишком низкую (менее средней) важность. 
+    '''
     # зафиксируем исходное количество признаков-предикторов
     default_featurs_num = pred_train.shape[1]
 
@@ -49,6 +53,13 @@ def optimize_model(
     # создадим селектор для отбора наиболее информативных предикторов
     selector = SelectFromModel(estimator=clf_tmp, threshold='mean', prefit=True)
 
+    # COMPROMISE: 'srtm', т.е., высота над уровнем моря, удаляется по VIF выше или 
+    # по importance ниже, но без неё результаты прогнозирования оказываются
+    # недостаточно точными из-за малого разрешения данных о погоде. 
+    # сохраним данные о высотах над уровнем моря
+    srtm_train = pred_train['srtm']
+    srtm_valid = pred_valid['srtm']
+
     # Отильтруем признаки в тренировочном и валидационном наборах. 
     # Сначала создадим маску для столбцов, ...
     selected_features = pred_train.columns[selector.get_support()]
@@ -56,11 +67,22 @@ def optimize_model(
     # ...с самыми информативными признаками. 
     pred_train_current = pred_train[selected_features]
     pred_valid_current = pred_valid[selected_features]
+    # COMPROMISE: 'srtm', т.е., высота над уровнем моря, удаляется по VIF выше или 
+    # по importance ниже, но без неё результаты прогнозирования оказываются
+    # недостаточно точными из-за малого разрешения данных о погоде. 
+    # добавим вручную данные о высотах над уровнем моря
+    if 'srtm' not in pred_train_current.columns:
+        pred_train_current['srtm'] = srtm_train
+        pred_valid_current['srtm'] = srtm_valid
     # создадим список имён оставшихся (самых информативных) столбцов
     retained_columns = pred_train_current.columns
 
     print(f"Было признаков: {default_featurs_num}, стало: {pred_train_current.shape[1]}")
 
+    '''
+    Определение функции 'objective' для последующей передачи в Optuna и последующее обучение модели. 
+    По результатам обучения выводится отчёт о сравнении обученной модели с фиктивной и её гиперпараметрах. 
+    '''
     def objective(trial): 
         params = parameters(trial)
         # Модель: передаём параметры, ...
@@ -92,14 +114,16 @@ def optimize_model(
     print()
 
     # Для сравнения выведем ROC-AUC фиктивной модели и... 
-    # print('Лучшее значение ROC-AUC для фиктивной модели {:5.4G}'.format(roc_auc_dummy), '.', sep='')
     print(f'Лучшее значение метрики {target_metric} для фиктивной модели {round(t_metric_dummy, 4)}.', sep='')
     print()
-    # ...значение ROC-AUC для модели случайного леса.
-    # print(f'Лучшее значение ROC-AUC для {algorythm} {round(study.best_value, 4)}.', sep='')
-    print(f'Лучшее значение метрики {target_metric} для {algorythm} по ходу обучения {round(study.best_value, 4)}.', sep='')
+    # ...значение ROC-AUC для обученной.
+    print(f'Лучшее значение метрики {target_metric} для {algorythm} {round(study.best_value, 4)}.', sep='')
     print()
 
+    '''
+    Создание модели (обучение на обучающем наборе данных), расчёт целевой метрики 
+    и прочих (zccuracy, precision, recall). 
+    '''
     best_model = model(**study.best_params).fit(pred_train_current, veg_train)
 
     # рассчитаем и запишем значения метрик
@@ -114,6 +138,10 @@ def optimize_model(
     best_metrics.loc[index, 'precision'] = precision_score(veg_valid, best_model.predict(pred_valid_current))
     best_metrics.loc[index, 'recall'] = recall_score(veg_valid, best_model.predict(pred_valid_current))
 
+    '''
+    Сравнение обученной модели с лучшей на момент начала обучения. Если новая модель имеет 
+    более высокую целевую метрику по сравнению с лучшей до того, то делаем лучшей её. 
+    '''
     # сравнение с лучшей на данный момент моделью 
     # Если лучшая модель даёт меньшее значение ROC-AUC, чем для только что обученная, то...
     if t_metric_best < study.best_value: 
@@ -133,15 +161,15 @@ def optimize_model(
         # обучаем модель
         model_best.fit(X_tr_shf, y_tr_shf)
 
-    # рассчитаем значения целевой метрики для подачи на дисплей
-    if target_metric == 'roc_auc':
-        valid_preds = model_best.predict_proba(pred_valid[best_retained_columns])[:, 1]
-        final_score = roc_auc_score(veg_valid, valid_preds)
-    else: 
-        # если целевая метрика Fbeta, можно оставить 'predict'
-        valid_preds = model_best.predict(pred_valid[best_retained_columns])
-        final_score = fbeta_score(veg_valid, valid_preds, beta=BETA)
+    # # рассчитаем значения целевой метрики для подачи на дисплей
+    # if target_metric == 'roc_auc':
+    #     valid_preds = model_best.predict_proba(pred_valid[best_retained_columns])[:, 1]
+    #     final_score = roc_auc_score(veg_valid, valid_preds)
+    # else: 
+    #     # если целевая метрика Fbeta, можно оставить 'predict'
+    #     valid_preds = model_best.predict(pred_valid[best_retained_columns])
+    #     final_score = fbeta_score(veg_valid, valid_preds, beta=BETA)
         
-    print(f'Лучшее значение метрики {target_metric} на валидационном наборе после обучения модели: {final_score:5.4G}')  
+    # print(f'Лучшее значение метрики {target_metric} на валидационном наборе после обучения модели: {final_score:5.4G}')  
         
     return t_metric_best, model_best, best_algorythm, best_retained_columns
