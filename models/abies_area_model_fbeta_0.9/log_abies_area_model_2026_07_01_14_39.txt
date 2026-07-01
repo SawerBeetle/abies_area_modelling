@@ -1,0 +1,78 @@
+Обучение модели начато 01.07.2026 14:39. 
+Объём обучающей выборки составил 15360 объектов. 
+Объём валидационной выборки составил 7680 объектов. 
+Объём тестовой выборки составил 7680 объектов. 
+
+Максимальное значение VIF: 8. 
+Переменные, оставшиеся после удаления мультиколлинеарных данных: 
+    pre_05, srtm, pre_07, snow_depth_10, evap_03, evap_11, evap_04, rel_hum_04, pre_01, rel_hum_12, rel_hum_09, slope, evap_07, soil_water_03, aspect, curvature. 
+
+Фиктивная модель создана по стратегии stratified. 
+Значение целевой метрики для фиктивной модели 0.074. 
+
+Целевая метрика: fbeta. 
+    Значение beta: 0.9. 
+Лучшая модель обучена за 25 проходов. 
+Алгоритм лучшей модели: XGBoost. 
+    fbeta лучшей модели (валидация): 0.7401813241603922. 
+    fbeta лучшей модели (тест): 0.767473669812611. 
+
+             Fbeta  accuracy precision    recall
+Dummy     0.073836  0.866276  0.072954  0.074954
+RF        0.596099  0.938021  0.554869  0.656307
+ET        0.461775   0.86224  0.330233  0.908592
+XGBoost   0.726882  0.957943  0.667164  0.817185
+LightGBM    0.7257  0.959766  0.701014  0.758684
+
+    параметры лучшей модели: 
+objective	binary:logistic
+base_score	
+booster	
+callbacks	
+colsample_bylevel	
+colsample_bynode	
+colsample_bytree	
+device	
+early_stopping_rounds	
+enable_categorical	False
+eval_metric	
+feature_types	
+feature_weights	
+gamma	
+grow_policy	
+importance_type	
+interaction_constraints	
+learning_rate	0.23179426211382156
+max_bin	
+max_cat_threshold	
+max_cat_to_onehot	
+max_delta_step	
+max_depth	7
+max_leaves	
+min_child_weight	
+missing	
+monotone_constraints	
+multi_strategy	
+n_estimators	487
+n_jobs	
+num_parallel_tree	
+random_state	1980
+reg_alpha	
+reg_lambda	
+sampling_method	
+scale_pos_weight	88.55436554678158
+subsample	0.3232797332634273
+tree_method	
+validate_parameters	
+verbosity	
+lambda	0.11669914064796182
+
+Важность использованных предикторов: 
+pre_01	0.16790421
+evap_04	0.16061212
+pre_05	0.13181303
+evap_03	0.12799275
+soil_water_03	0.12160818
+snow_depth_10	0.111364454
+rel_hum_09	0.10409773
+srtm	0.07460747

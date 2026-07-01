@@ -6,6 +6,7 @@
 /data/cmip_projections/
 
 /map_current/data.csv
+/map_current/abies_range_interactive_map.html
 
 /scripts/old/
 /scripts/__pycache__/

@@ -32,8 +32,7 @@ def load_weather_completely(
         root_dir=ROOT_DIR, 
         chunk_volume=10000, 
         model=None, 
-        mode='abies', 
-        test=True
+        mode='abies'
         ): 
     # если обрабатываем данные для пихтовых древостоев
     if mode == 'abies': 
@@ -250,26 +249,19 @@ def load_weather_completely(
         data_g['prognosis_res'] = np.select(conditions, choices, default='')
 
         # добавим ко фрейму с данными и результатами работы модели ещё и географические координаты
-        data_g = pd.concat([data_g, coords], axis=1, ignore_index=True)
+        data_g = pd.concat([data_g, coords], axis=1)
         
         # если файла 'data.csv' с результатами нет, создаём его на основе 'data_g'
-        if not os.path.isfile(os.path.join(root_dir, 'map_current/data.csv')): 
-            data_g.to_csv(os.path.join(root_dir, 'map_current/data.csv'))
+        data_path = os.path.join(ROOT_DIR, 'map_current/data.csv')
+
+        if not os.path.isfile(data_path): 
+            data_g.to_csv(data_path)
         # если этот файл уже существует, дописываем в него данные из 'data_g'
         else: 
             data_g.to_csv(
-                os.path.join(root_dir, 'map_current/data.csv'), 
+                data_path, 
                 mode='a', 
-                header=not os.path.join(root_dir, 'map_current/data.csv')
+                header=not data_path
                 )
-
-        # это нужно для тестового режима работы, чтобы не обрабатывать весь массив данных
-        if current_chunk == 3 and test: 
-            winsound.Beep(500, 500)
-            print('Обработка данных в тестововм режиме завершена.')
-            return predictions
-            break
     
     return predictions
-
-    
