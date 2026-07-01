@@ -1,3 +1,1 @@
-/data/predictors_abies.txt filter=lfs diff=lfs merge=lfs -text
-/data/predictors_not_abies.txt filter=lfs diff=lfs merge=lfs -text
 /map_current/data.csv filter=lfs diff=lfs merge=lfs -text
