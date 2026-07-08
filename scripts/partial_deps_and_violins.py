@@ -1,4 +1,5 @@
 import os
+import string
 
 import json
 import matplotlib.ticker as ticker
@@ -37,12 +38,14 @@ def partial_deps_and_violins(
         ): 
     
     # рассчитаем нужное количество столбцов
-    if pred_test[model.feature_names_in_].shape[1] < 7: 
-        n_cols = 3
-        width = 10.5
-    else: 
-        n_cols = 4
-        width = 14
+    n_cols = 3
+    width = 10.5
+    # if pred_test[model.feature_names_in_].shape[1] < 7: 
+    #     n_cols = 3
+    #     width = 10.5
+    # else: 
+    #     n_cols = 4
+    #     width = 14
     # рассчитаем нужное количество строк и высоту графика
     n_rows = math.ceil(pred_test.shape[1] / n_cols)
     height = 3 * n_rows
@@ -112,6 +115,10 @@ def partial_deps_and_violins(
         stat_name='D'
     )
 
+    # определим счётчик
+    k = 0
+    # получим список заглавных букв
+    en_letters = list(string.ascii_uppercase)
     # В цикле создадим скрипичные графики для всех features 
     # и разместим их во вложенных графиках axis. 
     for feature, axis in zip(features, ax_flat): 
@@ -138,6 +145,23 @@ def partial_deps_and_violins(
             # не показывать легенду
             legend=None
             )
+        # добавляем буквы
+        # axis.text(
+        #     x=-0.08,             # смещение левее начала оси (подбирается по вкусу)
+        #     y=1.05,              # смещение выше верхней границы графика
+        #     s=en_letters[k],      # берем букву по текущему индексу ('a', 'b', 'c'...)
+        #     transform=axis.transAxes, # важно! привязывает координаты к размеру осей (от 0 до 1)
+        #     fontsize=14,         # размер шрифта буквы
+        #     fontweight='bold',   # делаем букву жирной
+        #     va='top',            # выравнивание по вертикали
+        #     ha='right'           # выравнивание по горизонтали
+        # )
+        axis.set_title(
+            label=en_letters[k], 
+            loc='left',          # прижимает текст к левому краю
+            fontweight='bold', 
+            fontsize=14
+        )
         # Создадим аннотации к скрипичным графикам 
         # с уровнем значимости различий по Колмогорову-Смирнову. 
         # список кортежей, указывающих сравниваемые пары (здесь она одна, и кортеж один)
@@ -159,6 +183,8 @@ def partial_deps_and_violins(
         annot.configure(test=custom_ks_test, text_format='star', loc='outside', verbose=0)
         # передача аннотации на субграфик
         annot.apply_and_annotate()
+        # обновим счётчик
+        k += 1
     
     # предотвратим наложение субграфиков
     plt.tight_layout()
