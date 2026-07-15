@@ -16,6 +16,7 @@ The project have been developed to check what parts of region between 49.5 to 60
 
 The root directory contains the follow files and directories: 
 
+* **gitattributes** and **gitignore**: git service files; 
 * **config.json**: the global parameters for data processing and models training (e.g., target metric or path); 
 * **pipeline_current_area.drawio**: XML-file with data processing and model training description by block diagram (for https://app.diagrams.net/); 
 * **pipeline_current_area.drawio.png**: the block diagram with data processing and model training description; 
@@ -35,7 +36,7 @@ The root directory contains the follow files and directories:
 Inside the directory contains the files 
 
 * **abies.csv** and **not_abies.csv**: the sets for fir-dominated and other tree species-dominated polygons of processed climate and relief data, incl. polygon ID and coordinates, altitude, surface curvature, slope steepness and orientation and monthly averages for soil water content, precipitation, snow depth, temperature, evaporation and relative humidity. 
-* **predictors_abies.txt** and **predictors_not_abies.txt**: the whole sets of raw climate and relief data for *Abies* and other species-dominated poligons; 
+* **predictors_abies.txt** and **predictors_not_abies.txt**: the whole sets of raw climate and relief data for *Abies* and other species-dominated poligons; in github both these files are replaced by archived **predictors_abies.7z** and **predictors_not_abies.7z**. 
 * **predictors_abies.xml** and **predictors_not_abies.xml**: the metadata for above-mentioned whole sets of data. 
 
 ### **eda** content
@@ -49,6 +50,26 @@ The figure inside the directory is:
 
 * **feature_clusters.jpeg**: the results of cluster analysis for relief and climate predictors (about naming rules see: `train_models.ipynb`, Section 2.1). 
 
+### **map_current** content
+
+The directory contains four files: 
+
+* **abies_range_interactive_map.html**: the map visualizes the results of best model of *Abies sibirica*-dominated forests distribution (about best model see **metrics.txt** and **config.json**); 
+* **data.csv** and **data.parquet**: the same data to create the **abies_range_interactive_map.html**; current version of data contains 
+    * *pointid* (identificators of polygons),
+    * *pre_01*, *pre_05* (January and May precipitation), 
+    * *snow_depth_10* (October snow depth),
+    * *evap_03*, *evap_04* (March and April evaporation), 
+    * *rel_hum_09* (September relative air humidity),
+    * *soil_water_03* (March soil water content in upper layer),
+    * *srtm* (altitude),
+    * *real_veg* (data about vegetation according to [Vega PRO](http://pro-vega.ru/) analysis of remote sensing data; *1* is fir-dominated forests, *0* is the forests dominated by other tree species),
+    * *predicted_veg* (data about vegetation according to the best model prediction; *1* is fir-dominated forests, *0* is the forests dominated by other tree species),
+    * *prognosis_res* (real vs. predicted vegetation data; *TP* is true positive prediction, *TN* – true negative prediction, *FP* and *FN* are false positive and false negative respectively),
+    * *point_x* (longitude),
+    * *point_y* (latitude). 
+* **metrics.txt**: the file with the metrics (accuracy, precision and recall) of the best model on the full dataset. 
+
 ### **models** content
 
 Each directory inside **models** contains the best model optimized with some target metric (*ROC-AUC* or *Fbeta*, where *beta* is within [0.6, 0.7, 0.8, 0.9]). The files in these directories are: 
@@ -60,4 +81,13 @@ Each directory inside **models** contains the best model optimized with some tar
 * **partial_dependencies.jpeg**: partial dependencies plot for the selected predictors; 
 * **violins.jpeg**: violin plots to compare fir-dominated and other species-dominated polygons; asterisks denote the statistical significance of Kolmogorov – Smirnov tests. 
 
-### **
+### **models_comparison** content
+
+The directory contains two files: 
+
+* **comparisons.txt**: the comparison of prediction results of the models to each other; these models were compared by chi-square method and Kramer's V; 
+* **model_metrics.csv**: the accuracy, precision and recall of each model; the models are sorted by rank sum of these metrics in ascending orderю 
+
+### *scripts** content
+
+The directory contains all the scripts used in **train_models.ipynb** and **prediction.ipynb**. For detail description see Section 1.2 in **train_models.ipynb**. 
