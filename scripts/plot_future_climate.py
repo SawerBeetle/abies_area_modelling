@@ -15,7 +15,7 @@ ROOT_DIR = config['ROOT_DIR']
 
 def plot_future_climate(cmip_dict: dict, target_path: str, n_cols=3):
 
-    # извлечём ключи (сценарии CMIP) из обрабатываемого слованя
+    # извлечём ключи (сценарии SSP) из обрабатываемого слованя
     keys0 = list(cmip_dict.keys())
 
     # зададим ширину графика
@@ -35,7 +35,7 @@ def plot_future_climate(cmip_dict: dict, target_path: str, n_cols=3):
     en_letters = list(string.ascii_uppercase)
 
     # В цикле создадим и добавим на полотно субграфики, 
-    # последовательно обработав сценари CMIP из словаря 'cmip_dict'. 
+    # последовательно обработав сценарии SSP из словаря 'cmip_dict'. 
     for key0, axis in zip(keys0, ax_flat): 
         # извлечём из словаря для обрабатываемого сценария ключи, содержащие имена моделей
         keys1 = list(cmip_dict[key0])
@@ -52,7 +52,7 @@ def plot_future_climate(cmip_dict: dict, target_path: str, n_cols=3):
             sns.lineplot(
                 # данные для графика
                 data=cmip_dict[key0][key1].mean(axis=0), 
-                # субграфик, на который попадёт построенный скрипичный график
+                # субграфик, на который попадёт построенный график
                 ax=axis, 
                 lw=.5, 
                 label=model_name
@@ -72,9 +72,9 @@ def plot_future_climate(cmip_dict: dict, target_path: str, n_cols=3):
     
     # предотвратим наложение субграфиков
     plt.tight_layout()
-    # сохраним скрипичные графики в папку с моделью
+    # сохраним графики в папку с моделью
     plt.savefig(os.path.join(ROOT_DIR, target_path))
-    # выведем скрипичные графики на экран
+    # выведем графики на экран
     plt.show()
 
 

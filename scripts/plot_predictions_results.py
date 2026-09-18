@@ -43,7 +43,7 @@ def plot_predictions_results(
         coord_x = list(itertools.chain.from_iterable([coordinates.iloc[:, 0]] * 4))
         coord_y = list(itertools.chain.from_iterable([coordinates.iloc[:, 1]] * 4))
         alts = list(itertools.chain.from_iterable([altitudes.values] * 4))
-        header = f"Результаты для {period_limits}, наихудшая симуляция"
+        header = f"Results for {period_limits}, most pessimistic simulation"
         width = 1900
     elif mode == 'median':
         prediction_res = np.concatenate(
@@ -58,7 +58,7 @@ def plot_predictions_results(
         coord_x = list(itertools.chain.from_iterable([coordinates.iloc[:, 0]] * 4))
         coord_y = list(itertools.chain.from_iterable([coordinates.iloc[:, 1]] * 4))
         alts = list(itertools.chain.from_iterable([altitudes.values] * 4))
-        header = f"Результаты для {period_limits}, медианная симуляция"
+        header = f"Results for {period_limits}, median simiulation"
         width = 1900
     elif mode == 'maximal': 
         prediction_res = np.concatenate(
@@ -73,7 +73,7 @@ def plot_predictions_results(
         coord_x = list(itertools.chain.from_iterable([coordinates.iloc[:, 0]] * 4))
         coord_y = list(itertools.chain.from_iterable([coordinates.iloc[:, 1]] * 4))
         alts = list(itertools.chain.from_iterable([altitudes.values] * 4))
-        header = f"Результаты для {period_limits}, наилучшая симуляция"
+        header = f"Results for {period_limits}, most optimistic simulation"
         width = 1900
     elif mode == 'scenario': 
         prediction_res = np.concatenate([series.astype('bool').values for series in predictions]).tolist()
@@ -132,11 +132,11 @@ def plot_predictions_results(
 
     # словарь для подписей уровней высот в легенде 
     altitude_labels = {
-        'mountain_1': '300–600 м',
-        'mountain_2': '600–900 м',
-        'mountain_3': '900–1200 м',
-        'mountain_4': '1200–1500 м',
-        'mountain_5': 'Выше 1500 м'
+        'mountain_1': '300–600 m',
+        'mountain_2': '600–900 m',
+        'mountain_3': '900–1200 m',
+        'mountain_4': '1200–1500 m',
+        'mountain_5': 'Выше 1500 m'
     }
     #####
 
@@ -160,16 +160,16 @@ def plot_predictions_results(
     # Словарь для красивого перевода технических названий из колонки "label"
     if mode == 'scenario':
         custom_labels = {
-            'minimal': 'Минимальный результат',
-            'median': 'Медианный результат',
-            'maximal': 'Максимальный результат'
+            'minimal': 'Minimal result',
+            'median': 'Median result',
+            'maximal': 'Maximal result'
         }
     else: 
         custom_labels = {
-            '3.4': 'CMIP 3.4', 
-            '4.5': 'CMIP 4.5', 
-            '7.0': 'CMIP 7.0', 
-            '8.5': 'CMIP 8.5'
+            '3.4': 'SSP 3.4', 
+            '4.5': 'SSP 4.5', 
+            '7.0': 'SSP 7.0', 
+            '8.5': 'SSP 8.5'
         }
 
     # настраиваем подписи над субграфиками
@@ -253,7 +253,7 @@ def plot_predictions_results(
     # --- ШАГ 3: Финальная настройка стилей (выполняется ОДИН раз в самом конце) ---
     fig.update_layout(
         # заголовок легенды
-        legend_title_text="Обозначения: ", 
+        legend_title_text="Marks: ", 
         legend=dict(
             # гарантирует правильный порядок слоев в легенде от 1 до 5
             traceorder="normal", 
@@ -266,10 +266,10 @@ def plot_predictions_results(
     for trace in fig.data:
         if trace.name == 'True':
             # подпись вместо True
-            trace.name = 'благоприятно для пихты' 
+            trace.name = 'favorable for fir' 
         elif trace.name == 'False':
             # подпись вместо False
-            trace.name = 'неблагоприятно для пихты'  
+            trace.name = 'hostile for fir'  
 
     # настраиваем внешний вид маркеров
     fig.update_traces(
@@ -282,7 +282,7 @@ def plot_predictions_results(
     )
     
     # добавляем заголовок оси абсцисс (title) и задаём цвет сетки (gridcolor)
-    fig.update_xaxes(title="Долгота (°E)", gridcolor='gray')
+    fig.update_xaxes(title="Longitude (°E)", gridcolor='gray')
     fig.update_yaxes(gridcolor='gray')
 
     # код для отображения подписи оси ординат только у крайнего левого субграфика
@@ -291,7 +291,7 @@ def plot_predictions_results(
         if axis.startswith('yaxis'):
             # если это крайний левый элемент
             if axis == 'yaxis':
-                fig.layout[axis].title.text = "Широта (°N)"
+                fig.layout[axis].title.text = "Latitude (°N)"
             # если это следующие за ним элементы (yaxis2 etc.)
             else:
                 fig.layout[axis].title.text = "" 

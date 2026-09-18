@@ -153,9 +153,9 @@ def get_predictions_for_scenario(
             )
 
         plot_name = 'density_of_simulation_results_' + scenario + '_' + str(period[0]) + '–' + str(period[1]) + '.jpg'
-        plt.title(f"Распределение результатов прогноза для {scenario} в {period[0]}–{period[1]} гг.")
-        plt.xlabel("Доля благоприятных участков, %")
-        plt.ylabel("Плотность")
+        plt.title(f"Empirical distribution of prognosis results for {scenario} in {period[0]}–{period[1]} гг.")
+        plt.xlabel("Proportion of the favorable polygons, %")
+        plt.ylabel("Probability density")
         plt.savefig(
             os.path.join(ROOT_DIR, 'future_predictions/density_plots', plot_name), 
             dpi=300,              # Качество картинки
