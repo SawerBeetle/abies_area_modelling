@@ -85,4 +85,4 @@ def save_best_model(
     # сохраним в лог-файл таблицу importances
     used_predictors.to_csv(
         (os.getcwd() + '/' + fname), sep='\t', index=False, header=False, mode='a'
-        )        
+        )

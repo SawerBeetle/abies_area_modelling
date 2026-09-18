@@ -12,7 +12,7 @@
 
 The project have been developed to check what parts of region between 49.5 to 60.0°N, and 80.0 to 100.0°E will be suitable for conifer tree species *Abies sibirica* Ledeb. (Siberian fir) under future climate changes. We assume the relief and climate features are responsible for the suitability. Initially, we have trained some models where domination of Siberian fir is modelled by relief and climate predictors. Next, we pick the best model and use it to predict Siberian fir-dominatid forests area under different climate changes scenarios. 
 
-## Data structure
+## Project structure
 
 The root directory contains the follow files and directories: 
 
@@ -30,6 +30,87 @@ The root directory contains the follow files and directories:
 * **models**: the directories with trained models of the *Abies sibirica* spatial distribution and some supplementary files; 
 * **models_comparison**: files describing the comparative traits of the models; 
 * **scripts**: the Python scripts for the different stages of data processing. 
+.
+|____config.json
+|____data
+| |____abies.csv
+| |____not_abies.csv
+| |____predictors_abies.7z
+| |____predictors_abies.txt
+| |____predictors_abies.xml
+| |____predictors_not_abies.7z
+| |____predictors_not_abies.txt
+| |____predictors_not_abies.xml
+|____eda
+| |____comparison.html
+| |____feature_clusters.jpeg
+| |____not_multicollinear_pred_analysis.html
+|____map_current
+| |____abies_range_interactive_map.html
+| |____data.csv
+| |____data.parquet
+| |____metrics.txt
+|____models
+| |____abies_area_model_fbeta_0.6
+| | |____abies_area_model_2026_07_01_14_30_fbeta
+| | |____data_for_map.csv
+| | |____log_abies_area_model_2026_07_01_14_30.txt
+| | |____map.jpeg
+| | |____partial_dependencies.jpeg
+| | |____violins.jpeg
+| |____abies_area_model_fbeta_0.7
+| | |____abies_area_model_2026_07_01_14_33_fbeta
+| | |____data_for_map.csv
+| | |____log_abies_area_model_2026_07_01_14_33.txt
+| | |____map.jpeg
+| | |____partial_dependencies.jpeg
+| | |____violins.jpeg
+| |____abies_area_model_fbeta_0.8
+| | |____abies_area_model_2026_07_01_14_36_fbeta
+| | |____data_for_map.csv
+| | |____log_abies_area_model_2026_07_01_14_36.txt
+| | |____map.jpeg
+| | |____partial_dependencies.jpeg
+| | |____violins.jpeg
+| |____abies_area_model_fbeta_0.9
+| | |____abies_area_model_2026_07_01_14_39_fbeta
+| | |____data_for_map.csv
+| | |____log_abies_area_model_2026_07_01_14_39.txt
+| | |____map.jpeg
+| | |____partial_dependencies.jpeg
+| | |____violins.jpeg
+| |____abies_area_model_roc_auc
+| | |____abies_area_model_2026_07_01_14_24_roc_auc
+| | |____data_for_map.csv
+| | |____log_abies_area_model_2026_07_01_14_24.txt
+| | |____map.jpeg
+| | |____partial_dependencies.jpeg
+| | |____violins.jpeg
+|____models_comparison
+| |____comparisons.txt
+| |____model_metrics.csv
+|____pipeline_current_area.drawio
+|____pipeline_current_area.drawio.png
+|____poetry.lock
+|____prediction.ipynb
+|____pyproject.toml
+|____README.md
+|____scripts
+| |____calculate_weather_data.py
+| |____format_fn.py
+| |____load_raw_data.py
+| |____load_weather_completely.py
+| |____load_weather_partially.py
+| |____optimize_model.py
+| |____partial_deps_and_violins.py
+| |____plot_map.py
+| |____plot_map_and_save_data.py
+| |____prepare_datasets.py
+| |____read_log.py
+| |____remove_multicollinear.py
+| |____save_best_model.py
+| |____weather_means.py
+|____train_models.ipynb
 
 ### **data** content 
 
@@ -88,6 +169,35 @@ The directory contains two files:
 * **comparisons.txt**: the comparison of prediction results of the models to each other; these models were compared by chi-square method and Kramer's V; 
 * **model_metrics.csv**: the accuracy, precision and recall of each model; the models are sorted by rank sum of these metrics in ascending orderю 
 
-### *scripts** content
+### **scripts** content
 
 The directory contains all the scripts used in **train_models.ipynb** and **prediction.ipynb**. For detail description see Section 1.2 in **train_models.ipynb**. 
+
+## Data source and description
+
+Источник: Ссылка на датасет (Kaggle, S3-баккет, база данных). Важно: никогда не заливайте огромные сырые файлы данных напрямую в Git (используйте DVC или .gitignore).Описание признаков: Краткий дата-дикт (перечень ключевых колонок, целевая переменная).Объем данных: Количество строк, столбцов, временной интервал.
+
+## Pipeline and modelling
+
+Предобработка (Preprocessing): Как обрабатывались пропуски, кодировались категориальные признаки, масштабировались числовые переменные.Модели (Models): Какие алгоритмы тестировались (например, Baseline — LogisticRegression, финальная модель — LightGBM).Метрики (Metrics): Какие метрики оптимизировались (ROC-AUC, RMSE, F1-score) и почему выбраны именно они (связь с бизнес-метриками).Результаты (Results): Таблица или график с финальным качеством моделей на валидационной/тестовой выборке.
+
+## Installation and usage
+
+Шаг 1: Клонирование и окружение
+
+git clone https://github.com
+cd project-name
+python -m venv venv
+source venv/bin/activate  # Для Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+Шаг 2: Загрузка / подготовка данных
+
+Шаг 3: Обучение модели
+
+Шаг 4: Инференс (Проверка работы)
+
+## Tech stack
+
+Список ключевых библиотек и технологий в виде бейджей или лаконичного списка:
+

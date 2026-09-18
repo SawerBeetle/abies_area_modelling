@@ -1,4 +1,7 @@
 /map_current/data.csv filter=lfs diff=lfs merge=lfs -text
 /data/predictors_not_abies.7z filter=lfs diff=lfs merge=lfs -text
+data/snow_density_1940_2025.txt filter=lfs diff=lfs merge=lfs -text
+data/snow_depth_1940_2025.txt filter=lfs diff=lfs merge=lfs -text
+map_current/abies_range_interactive_map.html filter=lfs diff=lfs merge=lfs -text
 prediction.ipynb filter=lfs diff=lfs merge=lfs -text
 data/predictors_not_abies.7z filter=lfs diff=lfs merge=lfs -text
