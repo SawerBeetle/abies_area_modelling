@@ -1,0 +1,148 @@
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 3.4: 
+Признак: precipitation 
+jan: EC_Earth3; 
+may: EC_Earth3; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 3.4: 
+Признак: relative humidity 
+sep: CanESM5; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 3.4: 
+Признак: snow depth 
+oct: MRI_ESM2_0; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 3.4: 
+Признак: evaporation 
+mar: CNRM_ESM2_1, UKESM1_0_LL, MRI_ESM2_0; 
+apr: CNRM_ESM2_1, UKESM1_0_LL, MRI_ESM2_0; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 3.4: 
+Признак: soil water content 
+mar: MIROC6, IPSL_CM6A_LR; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 4.5: 
+Признак: precipitation 
+jan: HadGEM3_GC31_LL, NorESM2_LM, BCC_CSM2_MR, FGOALS_f3_L, NorESM2_MM; 
+may: HadGEM3_GC31_LL, NorESM2_LM, BCC_CSM2_MR, FGOALS_f3_L, NorESM2_MM; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 4.5: 
+Признак: relative humidity 
+sep: EC_Earth3_CC, TaiESM1, INM_CM5_0, FIO_ESM_2_0, CMCC_CM2_SR5, CMCC_ESM2, EC_Earth3_Veg_LR, BCC_CSM2_MR, CanESM5_CanOE, MPI_ESM1_2_LR, AWI_CM_1_1_MR; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 4.5: 
+Признак: snow depth 
+oct: CMCC_CM2_SR5, TaiESM1, GFDL_ESM4, CMCC_ESM2, MRI_ESM2_0; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 4.5: 
+Признак: evaporation 
+mar: EC_Earth3_CC, CMCC_CM2_SR5, CNRM_ESM2_1, GFDL_ESM4, CMCC_ESM2, BCC_CSM2_MR, UKESM1_0_LL, CESM2, MPI_ESM1_2_LR, MRI_ESM2_0; 
+apr: EC_Earth3_CC, CMCC_CM2_SR5, CNRM_ESM2_1, GFDL_ESM4, CMCC_ESM2, BCC_CSM2_MR, UKESM1_0_LL, CESM2, MPI_ESM1_2_LR, MRI_ESM2_0; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 4.5: 
+Признак: soil water content 
+mar: IPSL_CM6A_LR, EC_Earth3_CC, CMCC_CM2_SR5, TaiESM1, GFDL_ESM4, CMCC_ESM2, BCC_CSM2_MR, MIROC6, MPI_ESM1_2_LR; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 7.0: 
+Признак: precipitation 
+jan: CESM2_WACCM, NorESM2_LM, BCC_CSM2_MR, FGOALS_f3_L, NorESM2_MM; 
+may: CESM2_WACCM, NorESM2_LM, BCC_CSM2_MR, FGOALS_f3_L, NorESM2_MM; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 7.0: 
+Признак: relative humidity 
+sep: TaiESM1, INM_CM5_0, CMCC_CM2_SR5, EC_Earth3_AerChem, EC_Earth3_Veg_LR, BCC_CSM2_MR, CanESM5_CanOE, MPI_ESM1_2_LR, AWI_CM_1_1_MR, MPI_ESM_1_2_HAM; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 7.0: 
+Признак: snow depth 
+oct: CMCC_CM2_SR5, TaiESM1, GFDL_ESM4, MRI_ESM2_0; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 7.0: 
+Признак: evaporation 
+mar: CMCC_CM2_SR5, CNRM_ESM2_1, CESM2_WACCM, GFDL_ESM4, BCC_CSM2_MR, UKESM1_0_LL, CESM2, MPI_ESM1_2_LR, MRI_ESM2_0; 
+apr: CMCC_CM2_SR5, CNRM_ESM2_1, CESM2_WACCM, GFDL_ESM4, BCC_CSM2_MR, UKESM1_0_LL, CESM2, MPI_ESM1_2_LR, MRI_ESM2_0; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 7.0: 
+Признак: soil water content 
+mar: IPSL_CM6A_LR, CMCC_CM2_SR5, TaiESM1, GFDL_ESM4, MIROC6, BCC_CSM2_MR, MPI_ESM1_2_LR; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 8.5: 
+Признак: precipitation 
+jan: HadGEM3_GC31_LL, CESM2_WACCM, NorESM2_LM, BCC_CSM2_MR, FGOALS_f3_L, NorESM2_MM; 
+may: HadGEM3_GC31_LL, CESM2_WACCM, NorESM2_LM, BCC_CSM2_MR, FGOALS_f3_L, NorESM2_MM; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 8.5: 
+Признак: relative humidity 
+sep: EC_Earth3_CC, TaiESM1, INM_CM5_0, FIO_ESM_2_0, CMCC_CM2_SR5, KIOST_ESM, CMCC_ESM2, NESM3, EC_Earth3_Veg_LR, BCC_CSM2_MR, INM_CM4_8, CanESM5_CanOE, MPI_ESM1_2_LR, AWI_CM_1_1_MR; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 8.5: 
+Признак: snow depth 
+oct: TaiESM1, CMCC_CM2_SR5, GFDL_ESM4, CMCC_ESM2, MRI_ESM2_0; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 8.5: 
+Признак: evaporation 
+mar: EC_Earth3_CC, CMCC_CM2_SR5, CNRM_ESM2_1, CESM2_WACCM, GFDL_ESM4, CMCC_ESM2, BCC_CSM2_MR, UKESM1_0_LL, CESM2, MPI_ESM1_2_LR, MRI_ESM2_0; 
+apr: EC_Earth3_CC, CMCC_CM2_SR5, CNRM_ESM2_1, CESM2_WACCM, GFDL_ESM4, CMCC_ESM2, BCC_CSM2_MR, UKESM1_0_LL, CESM2, MPI_ESM1_2_LR, MRI_ESM2_0; 
+------------
+
+------------
+Запись сделана 2026-10-15 15:06
+Сценарий: 8.5: 
+Признак: soil water content 
+mar: IPSL_CM6A_LR, EC_Earth3_CC, CMCC_CM2_SR5, TaiESM1, GFDL_ESM4, CMCC_ESM2, BCC_CSM2_MR, MIROC6, MPI_ESM1_2_LR; 
+------------
+
