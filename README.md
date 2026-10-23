@@ -30,7 +30,8 @@ The root directory contains the follow files and directories:
 * **models**: the directories with trained models of the *Abies sibirica* spatial distribution and some supplementary files; 
 * **models_comparison**: files describing the comparative traits of the models; 
 * **scripts**: the Python scripts for the different stages of data processing. 
-.
+
+```text
 |____config.json
 |____data
 | |____abies.csv
@@ -111,6 +112,7 @@ The root directory contains the follow files and directories:
 | |____save_best_model.py
 | |____weather_means.py
 |____train_models.ipynb
+```
 
 ### **data** content 
 
