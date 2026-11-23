@@ -32,86 +32,104 @@ The root directory contains the follow files and directories:
 * **scripts**: the Python scripts for the different stages of data processing. 
 
 ```text
-|____config.json
-|____data
-| |____abies.csv
-| |____not_abies.csv
-| |____predictors_abies.7z
-| |____predictors_abies.txt
-| |____predictors_abies.xml
-| |____predictors_not_abies.7z
-| |____predictors_not_abies.txt
-| |____predictors_not_abies.xml
-|____eda
-| |____comparison.html
-| |____feature_clusters.jpeg
-| |____not_multicollinear_pred_analysis.html
-|____map_current
-| |____abies_range_interactive_map.html
-| |____data.csv
-| |____data.parquet
-| |____metrics.txt
-|____models
-| |____abies_area_model_fbeta_0.6
-| | |____abies_area_model_2026_07_01_14_30_fbeta
-| | |____data_for_map.csv
-| | |____log_abies_area_model_2026_07_01_14_30.txt
-| | |____map.jpeg
-| | |____partial_dependencies.jpeg
-| | |____violins.jpeg
-| |____abies_area_model_fbeta_0.7
-| | |____abies_area_model_2026_07_01_14_33_fbeta
-| | |____data_for_map.csv
-| | |____log_abies_area_model_2026_07_01_14_33.txt
-| | |____map.jpeg
-| | |____partial_dependencies.jpeg
-| | |____violins.jpeg
-| |____abies_area_model_fbeta_0.8
-| | |____abies_area_model_2026_07_01_14_36_fbeta
-| | |____data_for_map.csv
-| | |____log_abies_area_model_2026_07_01_14_36.txt
-| | |____map.jpeg
-| | |____partial_dependencies.jpeg
-| | |____violins.jpeg
-| |____abies_area_model_fbeta_0.9
-| | |____abies_area_model_2026_07_01_14_39_fbeta
-| | |____data_for_map.csv
-| | |____log_abies_area_model_2026_07_01_14_39.txt
-| | |____map.jpeg
-| | |____partial_dependencies.jpeg
-| | |____violins.jpeg
-| |____abies_area_model_roc_auc
-| | |____abies_area_model_2026_07_01_14_24_roc_auc
-| | |____data_for_map.csv
-| | |____log_abies_area_model_2026_07_01_14_24.txt
-| | |____map.jpeg
-| | |____partial_dependencies.jpeg
-| | |____violins.jpeg
-|____models_comparison
-| |____comparisons.txt
-| |____model_metrics.csv
-|____pipeline_current_area.drawio
-|____pipeline_current_area.drawio.png
-|____poetry.lock
-|____prediction.ipynb
-|____pyproject.toml
-|____README.md
-|____scripts
-| |____calculate_weather_data.py
-| |____format_fn.py
-| |____load_raw_data.py
-| |____load_weather_completely.py
-| |____load_weather_partially.py
-| |____optimize_model.py
-| |____partial_deps_and_violins.py
-| |____plot_map.py
-| |____plot_map_and_save_data.py
-| |____prepare_datasets.py
-| |____read_log.py
-| |____remove_multicollinear.py
-| |____save_best_model.py
-| |____weather_means.py
-|____train_models.ipynb
+|-- README.md
+|-- auxillary.ipynb
+|-- config.json
+|-- data
+|   |-- abies.csv
+|   |-- not_abies.csv
+|   |-- predictors_abies.7z
+|   |-- predictors_abies.txt
+|   |-- predictors_abies.xml
+|   |-- predictors_not_abies.7z
+|   |-- predictors_not_abies.txt
+|   |-- predictors_not_abies.xml
+|   |-- snow_density_1940_2025.txt
+|   `-- snow_depth_1940_2025.txt
+|-- eda
+|   |-- comparison.html
+|   |-- current_abies_vs_SSP3.4.html
+|   |-- current_abies_vs_SSP4.5.html
+|   |-- current_abies_vs_SSP7.0.html
+|   |-- current_abies_vs_SSP8.5.html
+|   |-- current_other_species_vs_SSP3.4.html
+|   |-- current_other_species_vs_SSP4.5.html
+|   |-- current_other_species_vs_SSP7.0.html
+|   |-- current_other_species_vs_SSP8.5.html
+|   |-- feature_clusters.jpeg
+|   `-- not_multicollinear_pred_analysis.html
+|-- future_predictions
+|   |-- density_plots
+|   |-- log.txt
+|   |-- maps
+|   `-- predictions
+|-- future_projections
+|   |-- evap.parquet
+|   |-- evap.txt
+|   |-- pre.parquet
+|   |-- pre.txt
+|   |-- rel_hum.parquet
+|   |-- rel_hum.txt
+|   |-- snow_depth.parquet
+|   |-- snow_depth.txt
+|   |-- ssp_3_4_climate_dynamics.jpeg
+|   |-- ssp_4_5_climate_dynamics.jpeg
+|   |-- ssp_4_5_climate_dynamics_75_100_fir_vs_other.jpeg
+|   |-- ssp_7_0_climate_dynamics.jpeg
+|   |-- ssp_7_0_climate_dynamics_75_100_fir_vs_other.jpeg
+|   |-- ssp_8_5_climate_dynamics.jpeg
+|   |-- ssp_8_5_climate_dynamics_75_100_fir_vs_other.jpeg
+|   |-- swvl1.parquet
+|   `-- swvl1.txt
+|-- map_current
+|   |-- abies_range_interactive_map.html
+|   |-- data.csv
+|   |-- data.parquet
+|   `-- metrics.txt
+|-- models
+|   |-- abies_area_model_fbeta_0.6
+|   |-- abies_area_model_fbeta_0.7
+|   |-- abies_area_model_fbeta_0.8
+|   |-- abies_area_model_fbeta_0.9
+|   `-- abies_area_model_roc_auc
+|-- models_comparison
+|   |-- comparisons.txt
+|   `-- model_metrics.csv
+|-- pipeline_current_area.drawio
+|-- pipeline_current_area.drawio.png
+|-- pipeline_future_area.drawio
+|-- pipeline_future_area.drawio.png
+|-- poetry.lock
+|-- prediction.ipynb
+|-- pyproject.toml
+|-- scripts
+|   |-- __pycache__
+|   |-- calculate_weather_data.py
+|   |-- create_cmip_dict.py
+|   |-- create_html_map.py
+|   |-- format_fn.py
+|   |-- get_predictions_for_prob.py
+|   |-- get_predictions_for_scenario.py
+|   |-- get_ydata_reports.py
+|   |-- load_projections.py
+|   |-- load_raw_data.py
+|   |-- load_weather_completely.py
+|   |-- load_weather_partially.py
+|   |-- optimize_model.py
+|   |-- partial_deps_and_violins.py
+|   |-- plot_future_climate.py
+|   |-- plot_future_climate_partially.py
+|   |-- plot_map.py
+|   |-- plot_map_and_save_data.py
+|   |-- plot_predictions_results.py
+|   |-- plot_predictions_results_prob.py
+|   |-- prepare_datasets.py
+|   |-- read_log.py
+|   |-- remove_multicollinear.py
+|   |-- save_best_model.py
+|   |-- shap_calc.py
+|   `-- weather_means.py
+`-- train_models.ipynb
 ```
 
 ### **data** content 
