@@ -16,7 +16,8 @@ The project have been developed to check what parts of region between 49.5 to 60
 
 The root directory contains the follow files and directories: 
 
-* **gitattributes** and **gitignore**: git service files; 
+* **gitattributes** and **gitignore**: git service files;
+* **auxillary**: Jupiter notebook with sideline calculations (e.g., within-clusters correlation analysis) not used in a manuscript;
 * **config.json**: the global parameters for data processing and models training (e.g., target metric or path); 
 * **pipeline_current_area.drawio**: XML-file with data processing and model training description by block diagram (for https://app.diagrams.net/); 
 * **pipeline_current_area.drawio.png**: the block diagram with data processing and model training description; 
@@ -112,18 +113,28 @@ Inside the directory contains the files
 
 * **abies.csv** and **not_abies.csv**: the sets for fir-dominated and other tree species-dominated polygons of processed climate and relief data, incl. polygon ID and coordinates, altitude, surface curvature, slope steepness and orientation and monthly averages for soil water content, precipitation, snow depth, temperature, evaporation and relative humidity. 
 * **predictors_abies.txt** and **predictors_not_abies.txt**: the whole sets of raw climate and relief data for *Abies* and other species-dominated poligons; in github both these files are replaced by archived **predictors_abies.7z** and **predictors_not_abies.7z**. 
-* **predictors_abies.xml** and **predictors_not_abies.xml**: the metadata for above-mentioned whole sets of data. 
+* **predictors_abies.xml** and **predictors_not_abies.xml**: the metadata for above-mentioned whole sets of data;
+* **snow_density_1940_2025.txt** and **snow_depth_1940_2025.txt**: data about snow cover used for conversion of future data snow depth units into units acceptable for fir favorability model. 
 
 ### **eda** content
 
-The directory contains two `ydata-profiling` generated EDA reports: 
+The directory contains a set of `ydata-profiling` generated EDA reports: 
 
-* **comparison.html**: the comparative statistical descriptions of fir-dominated and other species-dominated polygons and correlation structures for these two groups; 
+* **comparison.html**: the comparative statistical descriptions of fir-dominated and other species-dominated polygons and correlation structures for these two groups;
+* **current_abies_vs_[SSP].html**, **current_other_species_vs_[SSP].html**: reports to check unit conversion quality (the difference of SSP-predicted data and historical data must not be too sharp); 
 * **non_multicollinear_pred_analysis.html**: the same for predictors after high-VIF elimination. 
 
 The figure inside the directory is: 
 
-* **feature_clusters.jpeg**: the results of cluster analysis for relief and climate predictors (about naming rules see: `train_models.ipynb`, Section 2.1). 
+* **feature_clusters.jpeg**: the results of cluster analysis for relief and climate predictors (about naming rules see: `train_models.ipynb`, Section 2.1).
+
+### **future_predictions** content
+
+The directory contains a model-derived data about Siberian fir-dominated forests coverage. The file **log.txt** contains information about CMIP6 models used for each SSP prediction. Directories are: 
+
+* **density_plots**: density plots of simulated fir-dominated forests coverage (% from the whole forested area) for the given SSPs and time intervals;
+* **maps**: ;
+* **predictions**: . 
 
 ### **map_current** content
 
