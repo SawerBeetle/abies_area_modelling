@@ -103,32 +103,6 @@ The root directory contains the follow files and directories:
 |-- prediction.ipynb
 |-- pyproject.toml
 |-- scripts
-|   |-- __pycache__
-|   |-- calculate_weather_data.py
-|   |-- create_cmip_dict.py
-|   |-- create_html_map.py
-|   |-- format_fn.py
-|   |-- get_predictions_for_prob.py
-|   |-- get_predictions_for_scenario.py
-|   |-- get_ydata_reports.py
-|   |-- load_projections.py
-|   |-- load_raw_data.py
-|   |-- load_weather_completely.py
-|   |-- load_weather_partially.py
-|   |-- optimize_model.py
-|   |-- partial_deps_and_violins.py
-|   |-- plot_future_climate.py
-|   |-- plot_future_climate_partially.py
-|   |-- plot_map.py
-|   |-- plot_map_and_save_data.py
-|   |-- plot_predictions_results.py
-|   |-- plot_predictions_results_prob.py
-|   |-- prepare_datasets.py
-|   |-- read_log.py
-|   |-- remove_multicollinear.py
-|   |-- save_best_model.py
-|   |-- shap_calc.py
-|   `-- weather_means.py
 `-- train_models.ipynb
 ```
 
