@@ -3,7 +3,7 @@
     "BEST_MODEL_EXECUTION_RESULTS": "best_model_results", 
     "CALCULATE_FEATURES": false, 
     "CALCULATE_THE_DATA_FOR_MAP": false, 
-    "CALCULATE_THE_WHOLE_MAP": false, 
+    "CALCULATE_THE_WHOLE_MAP": true, 
     "COMPARE_MODELS_RESULTS": false, 
     "CMIP_DIR": "future_projections", 
     "DATA_VOLUME": 0.1, 

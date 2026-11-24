@@ -1,5 +1,5 @@
 Исследована модель abies_area_model_2026_07_01_14_36_fbeta 
-Путь к модели: /models/abies_area_model_fbeta_0.8 
+Путь к модели: models/abies_area_model_fbeta_0.8 
 
 Значение метрик для полного набора данных: 
     accuracy: 0.9571529716224905 
